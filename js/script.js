@@ -108,7 +108,6 @@ function closePhotoModal() {
 }
 
 /* --- IOS STYLE MIXTAPE AUDIO LOGIC --- */
-let bgFadeInterval;
 let currentlyPlayingBtn = null;
 
 function toggleIosSong(btnElement, songSrc) {
@@ -117,17 +116,11 @@ function toggleIosSong(btnElement, songSrc) {
 
     // If she clicks the exact same button that is already playing, Pause it
     if (currentlyPlayingBtn === btnElement && !mixtapePlayer.paused) {
-        // Pause the mixtape
         mixtapePlayer.pause();
         btnElement.innerText = "▶";
         
-        // Fade IN the background music
+        // Resume background music
         bgMusic.play();
-        clearInterval(bgFadeInterval);
-        bgFadeInterval = setInterval(() => {
-            if (bgMusic.volume < 0.9) { bgMusic.volume += 0.1; } 
-            else { bgMusic.volume = 1; clearInterval(bgFadeInterval); }
-        }, 100);
         return;
     }
 
@@ -136,34 +129,41 @@ function toggleIosSong(btnElement, songSrc) {
         currentlyPlayingBtn.innerText = "▶";
     }
 
+    // Immediately pause background music so they don't overlap on iPhone
+    bgMusic.pause();
+    bgMusic.currentTime = 0; // Optional: resets background music to the start
+
     // Start playing the NEW song
     currentlyPlayingBtn = btnElement;
     btnElement.innerText = "⏸";
     
     mixtapePlayer.src = songSrc;
     mixtapePlayer.play();
-
-    // Fade OUT the background music
-    clearInterval(bgFadeInterval);
-    bgFadeInterval = setInterval(() => {
-        if (bgMusic.volume > 0.1) { bgMusic.volume -= 0.1; } 
-        else { bgMusic.volume = 0; bgMusic.pause(); clearInterval(bgFadeInterval); }
-    }, 100);
 }
 
-// When a mixtape song finishes naturally, reset the button
+// When a mixtape song finishes naturally, resume background music
 document.getElementById("mixtape-player").addEventListener('ended', function() {
     if (currentlyPlayingBtn) {
         currentlyPlayingBtn.innerText = "▶";
         
-        // Fade the background music back in
+        // Resume background music
         const bgMusic = document.getElementById("bg-music");
         bgMusic.play();
-        clearInterval(bgFadeInterval);
-        bgFadeInterval = setInterval(() => {
-            if (bgMusic.volume < 0.9) { bgMusic.volume += 0.1; } 
-            else { bgMusic.volume = 1; clearInterval(bgFadeInterval); }
-        }, 100);
     }
 });
+// // When a mixtape song finishes naturally, reset the button
+// document.getElementById("mixtape-player").addEventListener('ended', function() {
+//     if (currentlyPlayingBtn) {
+//         currentlyPlayingBtn.innerText = "▶";
+        
+//         // Fade the background music back in
+//         const bgMusic = document.getElementById("bg-music");
+//         bgMusic.play();
+//         clearInterval(bgFadeInterval);
+//         bgFadeInterval = setInterval(() => {
+//             if (bgMusic.volume < 0.9) { bgMusic.volume += 0.1; } 
+//             else { bgMusic.volume = 1; clearInterval(bgFadeInterval); }
+//         }, 100);
+//     }
+// });
 
