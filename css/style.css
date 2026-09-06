@@ -1,0 +1,516 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #ca3965 0%, #e07777 50%, #f28da1 100%);
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* FIX: Use dynamic viewport height so it adapts to mobile toolbars */
+    min-height: 100dvh; 
+    margin: 0;
+    color: #fff;
+    /* FIX: Allow scrolling so tall content never gets cut off on large phones */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    position: relative;
+    padding: 0; /* Adds breathing room at the top and bottom */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    text-align: center;
+    width: 88%;
+    max-width: 360px; /* Slightly wider to fit modern Pro Max screens comfortably */
+    margin: auto; /* Perfect centering even when scrolling */
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    z-index: 2;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.container::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Ensure sections take full width smoothly during transitions */
+section {
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.mascot {
+    width: 140px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* h2, .clue, p {
+    color: #fff !important;
+} */
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    color: #fff !important;
+}
+
+p, .clue {
+    color: #ffccd5 !important;
+}
+
+.clue {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Password Dots */
+.password-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.dot.filled {
+    background-color: #fff; /* Fills in when a number is pressed */
+}
+
+/* The Keypad Grid */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.key {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #0f3057;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+    transition: transform 0.1s;
+}
+
+.key:active {
+    transform: scale(0.92);
+    background-color: #ffe4e6; /* Light blue flash on click */
+}
+
+.key.empty {
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.key.delete {
+    font-size: 18px;
+}
+
+
+.shake-animation { 
+    animation: shake 0.4s ease-in-out; 
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* --- NEW BUTTON STYLES --- */
+.cute-btn {
+    background-color: #0f3057;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+.cute-btn:active {
+    transform: scale(0.95);
+}
+
+.no-btn {
+    background-color: white;
+    color: #0f3057;
+    border: 2px solid #0f3057;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* --- FLOATING PIXEL HEARTS BACKGROUND --- */
+.floating-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none; /* Lets her click buttons right through them */
+    z-index: 1; /* Keeps them behind your text container */
+}
+
+.floating-pixel-heart {
+    position: absolute;
+    bottom: -50px;
+    width: 30px; /* Controls how big the pixel hearts look */
+    height: auto;
+    animation: floatPixelHeart linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatPixelHeart {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* --- ANIMATED ROSE AT THE BOTTOM --- */
+.animated-rose-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-10%);
+    z-index: 1;
+    pointer-events: none;
+    text-align: center;
+}
+
+.rose-img {
+    width: 60px;
+    height: auto;
+    /* Gentle swaying animation */
+    animation: swayRose 3s ease-in-out infinite alternate;
+    opacity: 0.85;
+}
+
+@keyframes swayRose {
+    0% {
+        transform: rotate(-8deg) translateY(0);
+    }
+    100% {
+        transform: rotate(8deg) translateY(-5px);
+    }
+}
+
+/* -- Chapter 3: Polaroid --- */
+.polaroid-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.polaroid {
+    background: white;
+    padding: 10px 10px 15px 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05); 
+}
+
+.polaroid-img-placeholder {
+    background-color: #ddd;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Styles the real image to fit perfectly inside the polaroid frame */
+.polaroid-actual-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* This crops the image nicely if it isn't a perfect square */
+    margin-bottom: 10px;
+    border-radius: 2px; /* Very slight rounding on the photo corners */
+}
+
+.polaroid p {
+    margin: 0;
+    font-family: 'Fredoka', sans-serif;
+    color: #0f3057 !important;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* --- IPAD & TABLET SCALING --- */
+@media (min-width: 768px) {
+    .container {
+        max-width: 500px; /* Makes the card wider for the iPad */
+        padding: 40px;    /* Adds more breathing room inside the card */
+    }
+    
+    h2 {
+        font-size: 28px;  /* Slightly larger text to fill the screen */
+    }
+    
+    .mascot {
+        width: 180px;     /* Makes the cute GIFs bigger */
+    }
+    
+    .polaroid {
+        width: 250px;     /* Makes the birthday photo bigger */
+    }
+    
+    .key {
+        font-size: 26px;  /* Easier to tap on a bigger screen */
+        padding: 20px 0;
+    }
+}
+
+/* --- CHAPTER 4: SCROLLABLE PHOTO GRID --- */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Forces two equal columns */
+    gap: 15px;
+    max-height: 45vh; /* Prevents the grid from getting too tall, triggering a scrollbar */
+    overflow-y: auto; /* Makes it scrollable inside the card */
+    padding: 10px 5px;
+    align-items: start;
+}
+
+/* Hide scrollbar for a clean look */
+.photo-grid::-webkit-scrollbar {
+    width: 0px;
+}
+
+.polaroid.mini {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 8px 12px 8px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+/* .polaroid.mini .mini-img {
+    height: 120px;
+    margin-bottom: 8px;
+} */
+
+.polaroid.mini .mini-img {
+    width: 100%;             /* Forces the image to stay inside the polaroid borders */
+    height: 120px;           /* Forces EVERY image to be exactly the same height */
+    object-fit: cover;       /* The magic trick: crops the image to fit perfectly without squishing! */
+    object-position: center; /* Keeps the focus on the center of the photo */
+    margin-bottom: 8px;
+    border-radius: 2px;
+}
+
+.polaroid.mini p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Make the mini polaroids show they are clickable */
+.polaroid.mini {
+    cursor: pointer;
+}
+
+/* --- PHOTO MODAL (POP-UP) STYLES --- */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Dark background */
+    backdrop-filter: blur(5px); /* Blurs everything behind it */
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 100; /* Keeps it on top of EVERYTHING */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 85%;
+    max-width: 350px;
+}
+
+.modal-polaroid {
+    width: 100%;
+    transform: rotate(0deg) !important; /* Keep it perfectly straight for easy reading */
+    cursor: default;
+    padding: 15px 15px 20px 15px;
+}
+
+.modal-polaroid .polaroid-actual-img {
+    height: auto; /* Lets the photo scale naturally */
+    max-height: 45vh; /* Prevents it from getting too tall on small phones */
+}
+
+#modal-desc {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #0f3057 !important;
+    font-weight: 500;
+}
+
+.close-modal {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #ca3965;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* --- CHAPTER 5: IOS STYLE MUSIC PLAYERS --- */
+.playlist-container-ios {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+    
+    /* FIX 1: Keeps the cards inside the container so they don't break out and ruin the layout */
+    width: 100%; 
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.playlist-container-ios::-webkit-scrollbar {
+    display: none;
+}
+
+.ios-player-card {
+    background: rgba(40, 40, 40, 0.7); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 20px; /* slightly less padding */
+    width: 280px; /* FIX 2: Makes them fit perfectly inside the phone screen width */
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.ios-album-art {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.ios-song-info {
+    margin-bottom: 15px;
+}
+
+.ios-title {
+    color: white !important;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ios-artist {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 16px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ios-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.ios-play-btn {
+    background: white;
+    color: black;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.ios-play-btn:active {
+    transform: scale(0.9);
+}
+
+.ios-message {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    margin: 0;
+    font-family: 'Fredoka', sans-serif;
+}

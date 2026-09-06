@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Sweet Baby</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+</head>
+
+<body>
+    <!-- FLOATING BACKGROUND CONTAINER -->
+    <div class="floating-bg" id="floatingBg">
+        <img src="/img/Flower/2.png" class="floating-pixel-heart" style="left: 16%; animation-duration: 6s; animation-delay: 0s;">
+        <img src="/img/Flower/2.png" class="floating-pixel-heart" style="left: 30%; animation-duration: 8s; animation-delay: 2s;">
+        <img src="/img/Flower/2.png" class="floating-pixel-heart" style="left: 79%; animation-duration: 5s; animation-delay: 1s;">
+        <img src="/img/Flower/3.png" class="floating-pixel-heart" style="left: 77%; animation-duration: 7s; animation-delay: 3s;">
+        <img src="/img/Flower/3.png" class="floating-pixel-heart" style="left: 90%; animation-duration: 5s; animation-delay: 1s;">
+        <img src="/img/Flower/3.png" class="floating-pixel-heart" style="left: 85%; animation-duration: 7s; animation-delay: 3s;">
+        <img src="/img/Flower/4.png" class="floating-pixel-heart" style="left: 10%; animation-duration: 6s; animation-delay: 0s;">
+        <img src="/img/Flower/4.png" class="floating-pixel-heart" style="left: 23%; animation-duration: 8s; animation-delay: 2s;">
+        <img src="/img/Flower/4.png" class="floating-pixel-heart" style="left: 5%; animation-duration: 5s; animation-delay: 2s;">
+    </div>
+
+    <!-- love gif with the animated rose -->
+    <div class="animated-rose-container">
+        <img src="/img/Flower/1.gif" alt="Hand-drawn Rose" class="rose-img">
+    </div>
+
+    <!-- ANIMATED ROSE AT THE BOTTOM -->
+    <div class="animated-rose-container">
+        <!-- You can drop a cute rose image link or local path here -->
+        <img src="/img/Flower/download.gif" alt="Animated Rose" class="rose-img">
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="/mp3/The 1975 - About You (Official).mp3" types="audio/mpeg">
+    </audio>
+    <audio id="incorrect-code">
+        <source src="/mp3/freesound_community-training-program-incorrect1-88736.mp3" types="audio/mpeg">
+    </audio>
+
+    <!-- the main container -->
+    <div class="container">
+        <!-- Chapter 1 -->
+    <section id="lock-screen">
+        <img src="/img/mouse/1.gif" alt="Cute character" class="mascot">
+        <h2>Hi, Sweetheart!❤️,<br>Please input the password</h2>
+
+        <!-- Password Dots Display -->
+        <div class="password-display">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- The Number Grid -->
+        <div class="keypad">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="key empty"></button> <!-- Empty space -->
+            <button class="key">0</button>
+            <button class="key delete">⌫</button> <!-- Delete button -->
+        </div>
+
+        <p class="clue">clue: our birthday combine</p>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section id="welcome-screen" style="display: none;"> 
+            <!-- First Step: Hi Pretty! -->
+            <img src="/img/rabbit/1.gif" alt="Cute Character" class="mascot">
+            <h2>Are you ready to open this?</h2>
+            <div class="button-group">
+                <button class="cute-btn" onclick="goToLetter()">Yes!</button>
+                <button class="cute-btn no-btn" onclick="teaseUser()">Noo!</button>
+            </div>
+            <p id="tease-msg" style="color: red; margin-top: 15px; display: none; font-size: 14px;">Awww, How mean!! Pretty Pleasee🥺</p>
+    </section>
+
+    <!-- CHAPTER 3: The Birthday Letter & Polaroid -->
+    <section id="letter-screen" style="display: none;">
+            <img src="/img/Pups/1.gif" alt="Cute character" class="mascot">
+            
+            <h2>My princess is 21 Years old this year! 🎂</h2>
+            <p style="color: #0f3057; margin-bottom: 30px; font-weight: 600;">Happy birthday to my most beautiful, loving, and caring future wife 🤍</p>
+            
+            <!-- Polaroid Photo -->
+            <div class="polaroid-container">
+                <div class="polaroid">
+                    <!-- Replace this div with an actual <img> tag when you have her photo! -->
+                    <img src="/img/her/polaroid.jpg" alt="A photo of this gorjos" class="polaroid-actual-img">
+                    <p>My favorite person</p>
+                </div>
+            </div>
+
+            <button class="cute-btn" onclick="goToGallery()" style="margin-top: 30px;">i have something else for you &lt;3</button>
+    </section>
+
+    <!-- CHAPTER 4: PHOTO GALLERY -->
+    <section id="gallery-screen" style="display: none;">
+        <h2>Our Memories 📷</h2>
+        <p style="margin-bottom: 20px;">Eventhough we don't have much time together 💕 However I'm so grateful and cherish for every moment we've shared...💕</p>
+        <p style="margin-bottom: 10px;">Tap any photo to read my thoughts...</p>
+        <!-- The Scrolling Grid Container -->
+        <div class="photo-grid">
+            
+            <!-- Photo 1 -->
+            <div class="polaroid mini" style="transform: rotate(2deg);"
+                data-img="/img/our memories/1.jpg"
+                data-desc="Do you remember this time? Where you guys suddenly ask if I want to join your guys group"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/1.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Lab Memories</p>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="polaroid mini" style="transform: rotate(-3deg);"
+                data-img="/img/our memories/2.jpg"
+                data-desc="I miss this so much, I have so much fun with you...🥹"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/2.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Matching Outfit</p>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="polaroid mini" style="transform: rotate(4deg);"
+                data-img="/img/our memories/3.jpg"
+                data-desc="I didn't know this picture until Ikin gave it to me long time ago, but you look so cute here! I like this Picture!!✨"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/3.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>My Cute Study Partner</p>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/4.jpg"
+                data-desc="When our classmate make plan to go to Chimney Hills before, I'm so sad that you couldn't come. However, I'm more worried about your health that time🥹 I'm really glad we are able to come here that moments"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/4.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>First Time Chimney with You!</p>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/5.jpg"
+                data-desc="Hiking with Kerni in my Hometown!? WOAH WOAH!! FEELS LIKE DREAM HAHAHAH!!!"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/5.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Man I love this picture alot</p>
+            </div>
+
+            <!-- Photo 6-->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/6.jpg"
+                data-desc="CUTE NYA KERNII!! I'm nervous about Kerni beside me, and also your sister infront of me😭😭"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/6.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Love you baee</p>
+            </div>
+
+            <!-- Photo 7 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/7.jpg"
+                data-desc="You know, I never expect I can let you meet my family this fast. Thank you Kernii, for giving me chances that I couldn't ask for more. I love you so much bigger than this world💕✨"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/7.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>My Favourite Picture of you with my family</p>
+            </div>
+
+            <!-- Photo 8 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/8.jpg"
+                data-desc="The only thing I don't like here, is the fact you have to go so fast..."
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/8.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>I miss you alot</p>
+            </div>
+
+            <!-- Photo 9 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/9.jpg"
+                data-desc="YEYY!!! YOU DON'T KNOW JUST HOW I FELT WHEN I SAW YOU BACK THEN!!! I REALLY WANNA JUMP!!! REALLY PROUD OF ME HOLDING BACK AHHAHA"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/9.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Unexplained Feeling</p>
+            </div>
+
+            <!-- Photo 10 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/10.jpg"
+                data-desc="Thank you, for spending you time with me✨. My first impression of KLCC couldn't be greater.. HAHAH I watch you alot more than the KLCC tho"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/10.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Late night Dates!!</p>
+            </div>
+
+            <!-- Photo 11 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/11.jpg"
+                data-desc="Awwwww, comelnyaa,,, I think I pout more often, because of you.. I dont know why I act like huhuh"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/11.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Pout with Me</p>
+            </div>
+
+            <!-- Photo 12 -->
+            <div class="polaroid mini" style="transform: rotate(-2deg);"
+                data-img="/img/our memories/12.jpg"
+                data-desc="This is actually my favourite picture of us, I like your eyes alot.. AWGGGG I LOVE YOUU SAYANGGG"
+                onclick="openPhotoModal(this)">
+                <img src="/img/our memories/12.jpg" alt="Memory" class="polaroid-actual-img mini-img">
+                <p>Why time so Fast...</p>
+            </div>
+
+            <!-- Add more photos here! -->
+
+        </div>
+
+        <button class="cute-btn" onclick="goToPlaylist()" style="margin-top: 25px;">our song 🎵</button>
+    </section>
+
+    <!-- CHAPTER 5: PLAYLIST (The iOS Style Mixtape) -->
+    <section id="playlist-screen" style="display: none;">
+        <h2>Songs That Remind Me Of You 🎶</h2>
+        <p style="margin-bottom: 20px;">Every time these play, I think of us...</p>
+        
+        <audio id="mixtape-player"></audio>
+
+        <!-- The Horizontal Scrolling Tracklist -->
+        <div class="playlist-container-ios">
+            
+            <!-- Player 1: Strawberry Champagne -->
+            <div class="ios-player-card">
+                <img src="/img/msc-icon/dept.jpg" alt="Strawberry Champagne" class="ios-album-art">
+                <div class="ios-song-info">
+                    <h3 class="ios-title">Strawberry Champagne</h3>
+                    <p class="ios-artist">Dept</p>
+                </div>
+                <!-- Play/Pause Controls -->
+                <div class="ios-controls">
+                    <button class="ios-play-btn" onclick="toggleIosSong(this, '/mp3/strawberry-champagne.mp3')">▶</button>
+                </div>
+                <p class="ios-message" style="text-align: left;">
+                    Actually, I do look at you every chance I get. I think I always have. Even back then, when I didn’t really understand what I was feeling, you already meant so much to me. I just didn’t know how to put it into words.<br><br>
+                    
+                    This song somehow always reminds me of you. I don’t really know why, but whenever I hear it, my mind just goes back to you. Maybe because, without you, something in me feels incomplete. You became a part of my life before I even realized how important you were going to be to me.<br><br>
+                    
+                    We weren’t together at first. In fact, I pushed you away so many times. I kept thinking that maybe I should stay away, maybe I shouldn’t get too close. But somehow, no matter how many times I tried, you were still there. You still found your way to stay close to me.<br><br>
+                    
+                    I honestly don’t know how you did that.<br><br>
+                    
+                    And even though our memories together weren’t always the sweetest, I still remember the little things about you. I noticed you when you laughed, when you were sad, when you were upset, and even when you were being your silly little self. I noticed the way you were, even when I was only able to watch you from afar.<br><br>
+                    
+                    The funny part is, I was the one who pushed you away, yet somehow, you were still the person who kept catching my attention.<br><br>
+                    
+                    I couldn’t stop looking at you.<br><br>
+                    
+                    I couldn’t stop wondering what you were thinking, what made you happy, what made you sad, and all those little things that made you who you are. I wanted to know more about you, even when I didn’t understand why I cared so much.<br><br>
+                    
+                    Looking back now, maybe my heart knew before I did.<br><br>
+                    
+                    Maybe that's why this song reminds me of you so much. Because somewhere between all the moments I tried to stay away from you, I was already falling for you without even realizing it.<br><br>
+                    
+                    And now that I have you, I don’t want to just look at you from afar anymore.<br><br>
+                    
+                    I want to be beside you.<br><br>
+                    
+                    I want to see you laugh up close, hold you when you're sad, annoy you when you're being silly, and be there for all the little moments in between.<br><br>
+                    
+                    I think if I could go back and tell the old me one thing, I’d tell him to stop pushing you away.<br><br>
+                    
+                    Because the girl he kept trying to stay away from would eventually become the girl he never wants to lose. ❤️
+                </p>
+            </div>
+
+            <!-- Player 2: bad -->
+            <div class="ios-player-card">
+                <img src="/img/msc-icon/w2e.jpg" alt="bad" class="ios-album-art">
+                <div class="ios-song-info">
+                    <h3 class="ios-title">bad</h3>
+                    <p class="ios-artist">wave to earth</p>
+                </div>
+                <div class="ios-controls">
+                    <button class="ios-play-btn" onclick="toggleIosSong(this, '/mp3/bad.mp3')">▶</button>
+                </div>
+                <p class="ios-message" style="text-align: left;">
+                    This song reminds me of you every single time. And honestly, because of you, I started loving wave to earth. Somehow, they found a special place inside my heart, just like you did. seasons, daisy., love., homesick... those are some of my favourites, but if I had to choose one song that feels the most like us, it would always be bad.<br><br>
+
+                    Let’s go back a little bit.<br><br>
+                    
+                    I think you already know that I love anime songs more than anything else. So before you came into my life, I didn’t even know wave to earth existed. I never thought I would listen to their songs this much. But somehow, after meeting you, every wave to earth song started reminding me of you.<br><br>
+                    
+                    Especially this one.<br><br>
+                    
+                    I still remember that day when we went hiking to Chimney Hill, just the two of us. bad kept playing in the background that day, and somehow, the whole atmosphere felt different. It didn’t feel like just another day anymore. It felt like a little part of our own love story was quietly starting without either of us saying anything.<br><br>
+                    
+                    That was also the first time I ever held a girl's hand.<br><br>
+                    
+                    And I still remember how warm your hand was.<br><br>
+                    
+                    I don't think you realized how big of a deal that was for me. I was such a shy kid. Talking to a girl was already a huge thing for me, and yet somehow, with you, I found myself reaching for your hand first.<br><br>
+                    
+                    I didn't think too much about it at the time.<br><br>
+                    
+                    I just wanted to hold your hand.<br><br>
+                    
+                    When we were hiking, I reached for your hand because I didn't want you to fall. When we were crossing the road, I reached for your hand because I didn't want you to trip.<br><br>
+                    
+                    Maybe those were simple little things.<br><br>
+                    
+                    But for me, they meant so much.<br><br>
+                    
+                    Because somehow, you made me feel calm. Really calm. The kind of calm that I couldn't explain. I didn't have to think about what I should say or how I should act. I could just be myself around you.<br><br>
+                    
+                    And I think that's something I'll always treasure about you.<br><br>
+                    
+                    You made a shy boy feel brave enough to reach for your hand.<br><br>
+                    
+                    You made something that used to feel so difficult feel so natural.<br><br>
+                    
+                    And now, whenever I hear bad, I don't just hear a song anymore.<br><br>
+                    
+                    I remember that day.<br><br>
+                    
+                    I remember the hike.<br><br>
+                    
+                    I remember walking beside you.<br><br>
+                    
+                    I remember your hand in mine.<br><br>
+                    
+                    And most of all, I remember how it felt to be there with you.<br><br>
+                    
+                    You, Kerney.<br><br>
+                    
+                    Only you.<br><br>
+                    
+                    If someone asked me why I reached for your hand that day, I'd probably say it was because I didn't want you to fall.<br><br>
+                    
+                    But if I'm being completely honest now...<br><br>
+                    
+                    Maybe a part of me was already afraid of letting you go. ❤️
+                </p>
+            </div>
+
+            <!-- Player 3: if only -->
+            <div class="ios-player-card">
+                <img src="/img/msc-icon/skyline.jpg" alt="if only" class="ios-album-art">
+                <div class="ios-song-info">
+                    <h3 class="ios-title">if only</h3>
+                    <p class="ios-artist">Skyline</p>
+                </div>
+                <div class="ios-controls">
+                    <button class="ios-play-btn" onclick="toggleIosSong(this, '/mp3/if-only.mp3')">▶</button>
+                </div>
+                <p class="ios-message" style="text-align: left;">
+                    This is the song I listen to the most whenever I think about you. Because there are so many times where I sit alone and wonder... If only I understood you better back then. If only I didn't run away. If only I was a little more mature. If only I knew how much you actually meant to me.<br><br>
+
+                    Kerney, I think about it a lot. For the whole two years we spent in matriculation, I had you there. You were right there, somewhere in my life, and yet somehow, I still managed to let so much time pass without truly understanding what I had. Sometimes I think about all the memories we could have made. I imagine us spending those two years together. Going out after class, eating together, walking around for no reason, laughing about stupid things, taking pictures, annoying each other, and just being there for one another.<br><br>
+
+                    Two years. We had so much time. And I didn't know how precious it was.<br><br>
+
+                    What hurts me the most is knowing that some of it wasn't taken away from us by circumstances. I was the one who pushed it away. I misunderstood you when I should have tried to understand you. I ran away when I should have stayed. I kept my distance when maybe all you needed was for me to be there.<br><br>
+
+                    And the worst part is, you were still there. You kept giving me chances to understand you, while I was too caught up in my own fear and confusion to realize what you were actually giving me. Sometimes I wonder if I was just too stupid to see it.<br><br>
+
+                    If only I had stopped for a moment and really looked at you. If only I had understood your feelings instead of assuming things. If only I wasn't so afraid of getting close to you. If only I had been brave enough to choose you back then...<br><br>
+
+                    Maybe those two years would have been ours. Maybe I wouldn't have to sit here now wondering what it would've been like to have you beside me all that time.<br><br>
+
+                    And sometimes, I think about the times I hurt you. I wish I could go back and be the person you needed me to be. I wish I could tell that younger version of myself, "She's important. Don't run away from her. Don't make her feel like she's not enough. Don't wait until you lose her to realize how much she means to you."<br><br>
+
+                    But I can't go back. I can't give you those two years. I can't erase the things I did or the moments where I made you feel hurt. And honestly, that's something I'll probably always regret.<br><br>
+
+                    But Kerney, there's one thing I'm grateful for. After everything. After all my mistakes. After all the times I pushed you away... You still chose to stay.<br><br>
+
+                    And I don't ever want to take that for granted.<br><br>
+
+                    So this time, I'm not going to keep wondering "what if?" Because I have you now. And this time, I want to do things differently. I want to understand you. I want to stay when things get difficult. I want to choose you even when I'm scared. I want to give you the love I should have given you back then.<br><br>
+
+                    Maybe I didn't choose you from the start. Maybe I wasn't ready back then. But I am here now.<br><br>
+
+                    And if you still let me, I want to be beside you until the very end. I'll treasure every chance you've given me, every memory we make, and every day that I get to call you mine.<br><br>
+
+                    Thank you, Kerney. For staying when you could have left. For giving me chances when I kept giving you reasons not to. For still believing in us when I didn't even know how to believe in myself.<br><br>
+
+                    And most importantly...<br><br>
+
+                    Thank you for choosing to stay.<br><br>
+
+                    I promise, this time, I choose you too.<br><br>
+
+                    And I'll keep choosing you.<br><br>
+
+                    Every time. ❤️
+                </p>
+            </div>
+
+            <!-- Player 4: if it's not you -->
+            <div class="ios-player-card">
+                <img src="/img/msc-icon/PYRVT.jpg" alt="if it's not you" class="ios-album-art">
+                <div class="ios-song-info">
+                    <h3 class="ios-title">if it's not you</h3>
+                    <p class="ios-artist">PRYVT</p>
+                </div>
+                <div class="ios-controls">
+                    <button class="ios-play-btn" onclick="toggleIosSong(this, '/mp3/if-its-not-you.mp3')">▶</button>
+                </div>
+                <p class="ios-message" style="text-align: left;">
+                    I think this is the song that reminds me of the moment I finally understood something. It was you from the beginning.<br><br>
+
+                    Maybe somewhere deep inside, I already knew. I just didn't understand it at the time. I was too confused, too scared, and honestly, too immature to realize what was right in front of me. And by the time I finally understood... I was already too late.<br><br>
+
+                    There were things I had done that I couldn't take back. Words I couldn't unsay. Moments I couldn't change. And no matter how much I wished I could go back and do things differently, I knew I couldn't rewrite what had already happened. I thought maybe that was it. Maybe I had already lost my chance with you.<br><br>
+
+                    But somehow, through some miracle I still can't explain, you're here again. And Kerney, you really don't know how thankful I am to God for that. Out of everyone I could have met, out of all the people who could have stayed in my life, somehow, I was given another chance with you. I don't want to take that miracle for granted.<br><br>
+
+                    Because now I know. I don't want to look for someone else. I don't want to imagine a different person beside me. I don't want another love story. If it's not you, then I'd rather be alone.<br><br>
+
+                    After everything we've been through, after all the mistakes I've made, and after somehow finding our way back to each other... I know who I want. It's you.<br><br>
+
+                    This time, I don't want to keep wondering about the person I could have ended up with. I want it to be us. I want us to be the ones who finally get to stay together. I want to grow with you, learn with you, make mistakes with you, fix things with you, and keep choosing each other even when things aren't easy.<br><br>
+
+                    But more than anything, I want God to be the one guiding us through all of it.<br><br>
+
+                    So, God...<br><br>
+
+                    Please take care of us. Please help me become someone who knows how to love her properly. Give me the patience to understand her, especially when I don't understand what she's feeling. Give me the strength to stay when things become difficult, instead of running away like I used to. And please give her the strength to understand me too, to forgive me when I make mistakes, and to keep growing with me.<br><br>
+
+                    Please protect our hearts from anything that could pull us apart. When we disagree, teach us to listen. When we hurt each other, teach us to forgive. When we feel tired, remind us why we chose each other. And when life gets difficult, please don't let us forget how far we've already come.<br><br>
+
+                    I don't know what the future holds for us, God. I don't know how many difficult days are waiting for us, or how many things we'll have to overcome together. But if You allow it...<br><br>
+
+                    Please let me walk through all of them with her.<br><br>
+
+                    Let us grow together. Let us become better people together. Let our love become stronger with every year that passes. And if this person is truly the one You've placed back into my life...<br><br>
+
+                    Please, God, let me keep her.<br><br>
+
+                    Please guide us, protect us, and give us the strength to hold onto each other until the very end. I don't ask for a perfect relationship. I just pray for a lasting one. One where, no matter how many times life tests us, we still find our way back to each other.<br><br>
+
+                    And if You let me have one wish for the rest of my life... I think I already know what I would ask for.<br><br>
+
+                    Please let it be us.<br><br>
+
+                    Please let it be Kerney. And please let me love her for as long as You allow me to. ❤️
+                </p>
+            </div>
+
+            <!-- Player 5: About You -->
+            <div class="ios-player-card">
+                <img src="/img/msc-icon/aboutyou (1).jpg" alt="About You" class="ios-album-art">
+                <div class="ios-song-info">
+                    <h3 class="ios-title">About You</h3>
+                    <p class="ios-artist">The 1975</p>
+                </div>
+                <div class="ios-controls">
+                    <button class="ios-play-btn" onclick="toggleIosSong(this, '/mp3/The 1975 - About You (Official).mp3')">▶</button>
+                </div>
+                <p class="ios-message" style="text-align: left;">
+                    To be honest, this is my favourite song right now. About You. And maybe that's because, whenever I listen to it, I can only think about you, Baee.<br><br>
+                    
+                    I love you. I love you with all of my heart, with all of my might, and with everything I have in me. I love everything about you. And I mean everything. I want to keep learning about you as we grow older together. I want to know the beautiful parts of you, the soft parts of you, the silly parts, the annoying parts, and even the evil part of you AHAHAHAHA. I want to know every version of you that life brings out.<br><br>
+                    
+                    So don't worry too much about the things you don't like about yourself. Don't worry about your scars. Don't worry about your attitude. Don't worry about the little things that make you think maybe I would see you differently. Because I won't. Those things don't make me love you any less. I love every single part of you, even the parts you sometimes struggle to love yourself.<br><br>
+                    
+                    I don't want to love only the easy version of you. I don't want to be there only when you're happy, pretty, calm, and everything is going perfectly. I want you. The whole you. The girl who laughs until she can't breathe, the girl who gets annoyed at me, the girl who can be silly for absolutely no reason, the girl who sometimes gives me that attitude AHAHAHA, the girl who gets sad and doesn't know what to say, the girl who has scars and insecurities, and the girl who isn't perfect. I don't need you to be perfect for me, Baee. I just need you to be you.<br><br>
+                    
+                    And there's something I want you to know more than anything. If one day you lost everything you remembered about us, if one day you forgot our first conversations, our stupid jokes, our dates, our hugs, our fights, our memories, and even forgot who I was... I would still stay. I'd sit beside you and introduce myself again. I'd tell you about how we met, the stupid things we did, the day I first held your hand, and every little memory that made me fall for you. And I'd let you get to know me all over again.<br><br>
+                    
+                    Even if I had to make you fall in love with me from the beginning, I'd do it. Because I don't love you only because of the memories we've made. I love you because you're you. So even if everything disappeared tomorrow, my love for you wouldn't disappear with it. I would still choose you. I would still look for you. I would still reach for your hand. And I would still stay.<br><br>
+                    
+                    Because after everything we've been through, after all the things I regret, after all the "what ifs" and all the chances we've somehow been given, I finally understand what I want. I want you, Baee.<br><br>
+                    
+                    I want to grow old with you. I want to meet every version of you that hasn't existed yet. I want to watch you change, grow, become stronger, become sillier, become more annoying AHAHAHA, and become the person you're meant to be. And I want to be there through all of it.<br><br>
+                    
+                    So don't ever be afraid that I'll suddenly stop loving you because you've changed. I'll change too. We'll grow together. And I'll keep learning how to love you through every version of you.<br><br>
+                    
+                    If you ask me how long I'll stay, I don't know what the future looks like. But I know one thing. I'm not backing down. Not from you. Not from us. Not this time.<br><br>
+                    
+                    I love you, Baee. And if I had to choose you all over again...<br><br>
+                    
+                    I'd still choose you. Every single time. ❤️
+                </p>
+            </div>
+
+        </div>
+
+        <button class="cute-btn no-btn" onclick="location.reload()" style="margin-top: 25px;">Restart Memories ↺</button>
+    </section>
+
+    </div>
+    
+    <div id="photo-modal" class="modal-overlay" onclick="closePhotoModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-modal" onclick="closePhotoModal()">×</button>
+            <div class="polaroid modal-polaroid">
+                <img id="modal-img" src="" alt="Enlarged Memory" class="polaroid-actual-img">
+                <p id="modal-desc">Description goes here...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/script.js"></script>
+    
+</body>
+</html>
