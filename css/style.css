@@ -119,6 +119,7 @@ p, .clue {
     cursor: pointer;
     font-family: 'Fredoka', sans-serif;
     transition: transform 0.1s;
+    -webkit-text-size-adjust: 100%;
 }
 
 .key:active {
